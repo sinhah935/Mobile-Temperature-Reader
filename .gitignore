@@ -1,0 +1,49 @@
+
+# General OS & Editor Files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# PlatformIO / ESP32 Firmware
+esp32_firmware/.pio/
+esp32_firmware/.vscode/
+esp32_firmware/.clangd/
+esp32_firmware/.clang-format
+esp32_firmware/.gcc-flags.json
+esp32_firmware/.gcc-flags.json
+esp32_firmware/.travis.yml
+# Compiled binaries
+esp32_firmware/.pioenvs/
+esp32_firmware/.piolibdeps/
+esp32_firmware/build/
+esp32_firmware/.gcc-flags.json
+
+
+# Node.js / Express Backend
+server/node_modules/
+server/.env
+server/.env.*
+server/dist/
+server/logs/
+
+# React + Vite Frontend
+web_dashboard/node_modules/
+web_dashboard/dist/
+web_dashboard/.env
+web_dashboard/.env.*
+web_dashboard/.DS_Store
+web_dashboard/.eslintcache
+web_dashboard/.vite/
+web_dashboard/.next/
+web_dashboard/out/
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
