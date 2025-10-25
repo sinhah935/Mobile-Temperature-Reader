@@ -1,14 +1,20 @@
 #include <Arduino.h>
+#include "config.h"
+
 #include <Wire.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_GFX.h>
 #include <DHT.h>
 
 // Pins Config and Constants 
-#define DHTPIN 4
+#define DHTPIN 18
 #define DHTTYPE DHT11
+// Pin config for DHT11 From Left to Right: DATA, 3.3V, GND
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
+
+#define OLED_SDA 21
+#define OLED_SCL 22
 
 DHT dht(DHTPIN, DHTTYPE);
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
@@ -16,13 +22,15 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 // WiFi
 #include <WiFi.h>
 #include <HTTPClient.h>
-const char* ssid = "Sinhah";
-const char* password = "hello1234";
-const char* serverUrl = "http://10.239.221.125:3000/api/data"; // Next.js endpoint
+const char* ssid = WIFI_SSID;
+const char* password = WIFI_PASSWORD;
+const char* serverUrl = SERVER_URL;// Next.js endpoint
 
 void setup() {
   Serial.begin(115200);
   dht.begin();
+
+  Wire.begin(OLED_SDA, OLED_SCL); // SDA, SCL
 
   // OLED setup
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
@@ -53,6 +61,9 @@ void setup() {
 void loop() {
   float temp = dht.readTemperature();
   float hum = dht.readHumidity();
+
+  Serial.print("Temp: "); Serial.println(temp);
+  Serial.print("Hum: "); Serial.println(hum);
 
   // Display
   display.clearDisplay();

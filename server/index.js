@@ -20,7 +20,8 @@ app.post('/api/data', (req, res) => {
 });
 
 app.get('/api/data', (req, res) => {
-    res.json(tempData);
+    // tempData.timestamp = new Date().toISOString();
+    res.json(latestData);
 });
 
 const PORT = process.env.PORT || 3000;

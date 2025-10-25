@@ -1,6 +1,4 @@
-import { useState, useEffect, use} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect} from 'react'
 import './App.css'
 
 function App() {
@@ -9,12 +7,15 @@ function App() {
   useEffect(() => {
 
     const fetchData = async () => {
-      const response = await fetch('http://10.239.221.125:3000/api/data');
+      const response = await fetch(`${import.meta.env.VITE_IP_ADDR}/api/data`);
       const json = await response.json();
       setData(json);
     }
 
     fetchData();
+
+    const interval = setInterval(fetchData, 3000);
+    return () => clearInterval(interval) // Fetch data every 5 seconds
 
   }, []);
 

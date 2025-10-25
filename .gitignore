@@ -22,6 +22,7 @@ esp32_firmware/.pioenvs/
 esp32_firmware/.piolibdeps/
 esp32_firmware/build/
 esp32_firmware/.gcc-flags.json
+esp32_firmware/include/config.h
 
 
 # Node.js / Express Backend
