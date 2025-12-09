@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
 
     const fetchData = async () => {
-      const response = await fetch(`${import.meta.env.VITE_IP_ADDR}/api/data`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/data`);
       const json = await response.json();
       setData(json);
     }
@@ -18,7 +18,6 @@ function App() {
     return () => clearInterval(interval) // Fetch data every 5 seconds
 
   }, []);
-
 
   return (
     <>

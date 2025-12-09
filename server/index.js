@@ -7,6 +7,8 @@ app.use(cors())
 app.use(bodyParser.json());
 
 let latestData = { temperature: null, humidity: null, timestamp: null };
+
+//Mock data for place holders
 let tempData = { temperature: 25, humidity: 50, timestamp: new Date().toISOString() };
 
 //ESP32 will send out POST requests to this endpoint with weather data
