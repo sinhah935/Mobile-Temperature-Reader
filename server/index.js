@@ -21,6 +21,7 @@ app.post('/api/data', (req, res) => {
     
 });
 
+//REACT will GET the latest weather data from this endpoint
 app.get('/api/data', (req, res) => {
     // tempData.timestamp = new Date().toISOString();
     res.json(latestData);
@@ -30,3 +31,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+
